@@ -1,0 +1,109 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+form {
+    background-color: #333;
+    color: white;
+    padding: .5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+form > header {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: rgb(255, 255, 255);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.name, .lastname, .email {
+    margin-bottom: 4px;
+}
+
+input {
+    width: 100%;
+    padding: 6px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.input-info {
+    display: flex;
+}
+
+form > * {
+    margin: 1rem;
+}
+
+.buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: .5rem;
+}
+
+.buttons > div {
+    margin-left: auto;
+    border-radius: 50px;
+    background-color: #eeeeee;
+    padding: 0.5rem 1rem;
+}
+
+.buttons > div:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.a-log-in {
+    color: #222;
+
+}
+
+.buttons > button {
+    border: none;
+    outline: none;
+    background-color:rgb(0, 123, 255);
+    color: white;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;    
+}
+
+.buttons > button:hover {
+    background-color:rgb(2, 105, 215);
+    cursor: pointer;
+}
+
+/* Estilo básico para el input de tipo file */
+input[type="file"] {
+    display: none; /* Oculta el input real */
+}
+
+/* Estilo para el botón personalizado */
+label {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+}
+
+/* Cambia el estilo del botón cuando el input de tipo file está enfocado */
+input[type="file"]:focus + label {
+    outline: 2px solid #007bff;
+    outline-offset: -2px;
+}
+
+/* Cambia el estilo del botón cuando el input de tipo file tiene un archivo seleccionado */
+input[type="file"]:not(:focus) + label {
+    background-color: #004080;
+}
