@@ -37,7 +37,9 @@ main {
 }
 
 .profile {
-    background-color: rgb(213, 211, 211);
+    /* background-color: rgb(213, 211, 211); */
+    background: url(../bbdd/default.png);
+    background-size: cover;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -88,4 +90,12 @@ a {
 .nav-menu > ul > li:hover {
     background-color: rgba(0, 123, 255, .2);
     border-bottom: 4px solid rgb(0, 123, 255);
+}
+
+.user-sing {
+    background-color: rgb(29, 185, 29);
+    padding: 10px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
 }

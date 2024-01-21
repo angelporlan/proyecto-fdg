@@ -14,8 +14,14 @@
 
     <main>
         
-        <form action="">
+        <form action="./controler/process_singin.php" method="post" enctype="multipart/form-data">
             <header>Crear cuenta</header>
+            <?php
+                if (isset($_SESSION['singError'])) {
+                    echo $_SESSION['singError'];
+                    unset($_SESSION['singError']);
+                }
+            ?>
                 <div class="inputs">
                     <div class="name">
                         <div class="input-info">
@@ -26,22 +32,22 @@
                     </div>
                     <div class="lastname">
                         <div class="input-info">
-                            <i class="fa-solid fa-user"></i>
+                            <i class="fa-regular fa-user"></i>
                             <p>&nbspLastname</p>
                         </div>
                         <input type="text" name="lastname" placeholder="Lastname">
                     </div>
                     <div class="email">
                         <div class="input-info">
-                            <i class="fa-solid fa-user"></i>
-                            <p>&nbspEmail</p>
+                            <i class="fa-solid fa-envelope"></i>
+                            <p>&nbsp* Email</p>
                         </div>
                         <input type="text" name="email" placeholder="Email">
                     </div>
                     <div class="password">
                         <div class="input-info">
                             <i class="fa-solid fa-lock"></i>
-                            <p>&nbspPassword</p>
+                            <p>&nbsp* Password</p>
                         </div>
                         <input type="password" name="password" placeholder="Contraseña">
                     </div>

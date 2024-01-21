@@ -78,3 +78,10 @@ form > * {
     background-color:rgb(2, 105, 215);
     cursor: pointer;
 }
+
+.error {
+    background-color: red;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+ }

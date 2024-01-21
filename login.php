@@ -14,12 +14,18 @@
 
     <main>
         
-        <form action="">
+        <form action="./controler/process_login.php" method="post">
             <header>Iniciar sesión</header>
+            <?php
+                if (isset($_SESSION['logError'])) {
+                    echo $_SESSION['logError'];
+                    unset($_SESSION['logError']);
+                }
+            ?>
                 <div class="inputs">
                     <div class="email">
                         <div class="input-info">
-                            <i class="fa-solid fa-user"></i>
+                            <i class="fa-solid fa-envelope"></i>
                             <p>&nbspEmail</p>
                         </div>
                         <input type="text" name="email" placeholder="Email">

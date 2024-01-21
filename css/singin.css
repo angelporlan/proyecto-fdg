@@ -107,3 +107,10 @@ input[type="file"]:focus + label {
 input[type="file"]:not(:focus) + label {
     background-color: #004080;
 }
+
+.error {
+   background-color: red;
+   text-align: center;
+   padding: 5px;
+   border-radius: 4px;
+}
