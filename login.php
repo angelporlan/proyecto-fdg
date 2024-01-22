@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/menu.css">
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <script type="module" src="./js/login.js"></script>
 </head>
 <body>
     <?php include_once('./components/menu.php')?>

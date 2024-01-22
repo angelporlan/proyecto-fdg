@@ -49,7 +49,7 @@
             $_SESSION['userSing'] = 'Registro creado correctamente';
         }
         
-        header("Location: ../index.php");
+        header("Location: ../login.php");
         exit();
 
     }
