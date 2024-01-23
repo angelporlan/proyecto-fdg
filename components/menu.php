@@ -9,7 +9,7 @@
                 echo "<a href='login.php' class='profile'></a>";
             }
         ?>
-        <div class="share"><strong>+</strong>&nbspComparte</div>
+        <a href="./share.php"><div class="share"><strong>+</strong>&nbspComparte</div></a>
     </div>
 </header>
 

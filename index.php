@@ -26,7 +26,7 @@
                         <p class="discont">(-50%)</p>
                         <p class="category">Ropa</p>
                     </div>
-                    <p>Cazadora negra para hombre, inspirada en el emblemático manga Naruto Shippûden. La cazadora está adornada con cautivadores motivos que representan las famosas</p>
+                    <p class="description">Cazadora negra para hombre, inspirada en el emblemático manga Naruto Shippûden. La cazadora está adornada con cautivadores motivos que representan las famosas</p>
                     <div class="buttons">
                     <div class="user">
                             <img src="./bbdd/default.png">
@@ -38,17 +38,17 @@
             </article>
             <article>
                 <div class="left-zone">
-                    <img src="https://static.chollometro.com/threads/raw/f5XnC/1221955_1/re/300x300/qt/60/1221955_1.jpg">
+                    <img src="https://static.chollometro.com/threads/raw/gd6eP/1222329_1/re/300x300/qt/60/1222329_1.jpg">
                 </div>
                 <div class="right-zone">
-                    <strong>Celio Naruto Shippuden - Cazadora Naruto Akatsuki</strong>
+                    <strong>Nike Air Max Plus 3 Zapatillas - Hombre (tallas 36-49,5)</strong>
                     <div class="prices">
-                        <p class="price-new">49,99$</p>
-                        <p class="price-old">99,99$</p>
-                        <p class="discont">(-50%)</p>
+                        <p class="price-new">94,97$</p>
+                        <p class="price-old">120$</p>
+                        <p class="discont">(-21%)</p>
                         <p class="category">Ropa</p>
                     </div>
-                    <p>Cazadora negra para hombre, inspirada en el emblemático manga Naruto Shippûden. La cazadora está adornada con cautivadores motivos que representan las famosas</p>
+                    <p class="description">Las Nike Air Max Plus 3 destacan por incorporar la Tecnología Tuned Air y una innovación con TPU fusionado que asegura resistencia y comodidad. Siguen homenajeando su herencia con un estilo clásico y un tributo al estilo de las originales.</p>
                     <div class="buttons">
                         <div class="user">
                             <img src="./bbdd/default.png">

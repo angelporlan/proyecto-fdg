@@ -34,6 +34,25 @@ main {
 
 .prices {
     display: flex;
+    margin-top: .3rem;
+    font-size: 1.3rem;
+}
+
+.right-zone > strong {
+    font-size: 1.5rem;
+    color: rgb(24, 24, 24);
+}
+
+.price-new {
+    font-weight: 600;
+    color: rgb(0, 123, 255);
+    font-size: 1.5rem;
+
+}
+
+.price-old {
+    color: rgb(85, 85, 85);
+    text-decoration: line-through;
 }
 
 .prices > * {
@@ -104,4 +123,22 @@ main {
 .ir-al-chollo:hover {
     background-color: rgb(3, 86, 173);
     cursor: pointer;
+}
+
+.user {
+    position: absolute;
+    bottom: 0;
+}
+
+.user > img {
+    margin-right: .8rem;
+}
+
+.user > p {
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+.description {
+    margin-top: 1rem;
 }
