@@ -41,11 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['avatar']) && isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
         // Se hizo clic en "Reemplazar" y se seleccionó una nueva imagen
     
-        // Verificar si la imagen existente existe y eliminarla
-        if (file_exists($existingImagePath) && $existingImagePath != '../bbdd/default.png') {
-            unlink($existingImagePath);
-        }
-
         // Obtener el ID del usuario
         $userId = $_SESSION['userLogin']['id'];
     
@@ -63,7 +58,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
         // Ruta completa al archivo de la imagen existente
         $existingImagePath = $uploadDir . $_SESSION['userLogin']['ruta_imagen'];
-    
+        
+        // Verificar si la imagen existente existe y eliminarla
+        if (file_exists($existingImagePath) && $existingImagePath != '../bbdd/default.png') {
+            unlink($existingImagePath);
+        }
+
         // Mover la nueva imagen al directorio de destino
         if (move_uploaded_file($_FILES['img']['tmp_name'], $targetPath)) {
             $_SESSION['userLogin']['ruta_imagen'] = $newAvatarName;
@@ -79,10 +79,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ":ruta_imagen" => $newAvatarName,
                 ":id" => $userId
             ])) {
-                // La actualización de la base de datos se realizó correctamente
+                $_SESSION['userDeleteImg'] = 'Imagen actualizada';
             }
     
-            $_SESSION['userDeleteImg'] = 'Imagen actualizada';
+            
         }
     }
     
