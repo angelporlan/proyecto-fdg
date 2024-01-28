@@ -36,7 +36,12 @@
     if (isset($_SESSION['userChangePass'])) {
         echo "<p class='user-sing'>{$_SESSION['userChangePass']} - (Pulsar para eliminar mensaje)</p>";
         unset($_SESSION['userChangePass']);
-    }  
+    }
+    
+    if (isset($_SESSION['userShare'])) {
+        echo "<p class='user-sing user-share'>{$_SESSION['userShare']} - (Pulsar para eliminar mensaje)</p>";
+        unset($_SESSION['userShare']);
+    }
 ?>
 
 <nav class="nav-menu">

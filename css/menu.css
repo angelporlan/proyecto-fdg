@@ -100,3 +100,11 @@ a {
     text-align: center;
     cursor: pointer;
 }
+
+.user-share {
+    background-color: rgb(222, 38, 38);
+    padding: 10px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}

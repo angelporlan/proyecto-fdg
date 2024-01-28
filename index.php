@@ -11,54 +11,50 @@
 </head>
 <body>
     <?php include_once('./components/menu.php')?>
-
+    
     <main>
-        <div class="container-left">
-            <article>
-                <div class="left-zone">
-                    <img src="https://static.chollometro.com/threads/raw/f5XnC/1221955_1/re/300x300/qt/60/1221955_1.jpg">
-                </div>
-                <div class="right-zone">
-                    <strong>Celio Naruto Shippuden - Cazadora Naruto Akatsuki</strong>
-                    <div class="prices">
-                        <p class="price-new">49,99$</p>
-                        <p class="price-old">99,99$</p>
-                        <p class="discont">(-50%)</p>
-                        <p class="category">Ropa</p>
-                    </div>
-                    <p class="description">Cazadora negra para hombre, inspirada en el emblemático manga Naruto Shippûden. La cazadora está adornada con cautivadores motivos que representan las famosas</p>
-                    <div class="buttons">
-                    <div class="user">
-                            <img src="./bbdd/default.png">
-                            <p>Angel Porlan</p>
-                        </div>
-                        <button class="ir-al-chollo">Ir al chollo</button>
-                    </div>
-                </div>
-            </article>
-            <article>
-                <div class="left-zone">
-                    <img src="https://static.chollometro.com/threads/raw/gd6eP/1222329_1/re/300x300/qt/60/1222329_1.jpg">
-                </div>
-                <div class="right-zone">
-                    <strong>Nike Air Max Plus 3 Zapatillas - Hombre (tallas 36-49,5)</strong>
-                    <div class="prices">
-                        <p class="price-new">94,97$</p>
-                        <p class="price-old">120$</p>
-                        <p class="discont">(-21%)</p>
-                        <p class="category">Ropa</p>
-                    </div>
-                    <p class="description">Las Nike Air Max Plus 3 destacan por incorporar la Tecnología Tuned Air y una innovación con TPU fusionado que asegura resistencia y comodidad. Siguen homenajeando su herencia con un estilo clásico y un tributo al estilo de las originales.</p>
-                    <div class="buttons">
-                        <div class="user">
-                            <img src="./bbdd/default.png">
-                            <p>Angel Porlan</p>
-                        </div>
-                    </div>
-                    <button class="ir-al-chollo">Ir al chollo</button>
 
-                </div>
-            </article>
+       
+        <div class="container-left">
+        <?php
+            require_once "./controler/functions_bbdd.php";
+
+            $pdo = conectadb();
+            $consulta = "SELECT * FROM productos ORDER BY id DESC;";
+
+            $resultado = $pdo->query($consulta);
+
+            if ($resultado) {
+                foreach ($resultado as $registro) {
+                    echo "<article>";
+                    echo "<div class='left-zone'>";
+                    echo "<img src='./bbdd/$registro[ruta_imagen]'>";
+                    echo "</div>";
+                    echo "<div class='right-zone'>";
+                    $tituloCorto = (strlen($registro['titulo']) > 60) ? substr($registro['titulo'], 0, 60) . '...' : $registro['titulo'];
+                    echo "<strong>$tituloCorto</strong>";
+                    echo "<div class='prices'>";
+                    echo "<p class='price-new'>$registro[precio_oferta]</p>";
+                    echo "<p class='price-old'>$registro[precio]</p>";
+                    $porcentajeDescuento = (($registro['precio'] - $registro['precio_oferta']) / $registro['precio']) * 100;
+                    $porcentajeDescuento = '(' . round($porcentajeDescuento, 0) . '%)';
+                    echo "<p class='discont'>$porcentajeDescuento</p>";
+                    echo "<p class='category'>$registro[seccion]</p>";
+                    echo "</div>";
+                    $descripcionCorta = (strlen($registro['descripcion']) > 200) ? substr($registro['descripcion'], 0, 200) . '...' : $registro['descripcion'];
+                    echo "<p class='description'>$descripcionCorta</p>";
+                    echo "<div class='buttons'>";
+                    echo "<div class='user'>";
+                    echo "<img src='./bbdd/$registro[ruta_imagen_user]'>";
+                    echo "<p>$registro[nombre_user]</p>";
+                    echo "</div>";
+                    echo "<button class='ir-al-chollo'>Ir al chollo</button>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</article>";
+                }
+            }
+        ?>
 
             
         </div>

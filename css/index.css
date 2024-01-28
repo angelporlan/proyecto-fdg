@@ -34,7 +34,7 @@ main {
 
 .prices {
     display: flex;
-    margin-top: .3rem;
+    margin-top: .2rem;
     font-size: 1.3rem;
 }
 
@@ -101,14 +101,19 @@ main {
     background-color: #fff;
 }
 
-.right-zone {
+article {
     position: relative;
+
 }
+
+/* .right-zone {
+    position: relative;
+} */
 
 .ir-al-chollo {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 1rem;
+    right: 1rem;
     background-color: rgb(0, 123, 255);
     border-radius: 50px;
     display: flex;
@@ -127,7 +132,7 @@ main {
 
 .user {
     position: absolute;
-    bottom: 0;
+    bottom: 1rem;
 }
 
 .user > img {
