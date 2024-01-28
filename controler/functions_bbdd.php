@@ -46,12 +46,23 @@ function isEmailLogin($email) {
 //si el email y la contraseña son correctos, le devuelvo el usuario
 function retrieveUser($email, $password) {
     $pdo = conectaDb();
-    $consulta = "SELECT * FROM usuarios";
-    $resultado = $pdo->query($consulta);
-    foreach ($resultado as $registro) {
-        if (strtolower($email) == strtolower($registro['email']) && $password == $registro['contraseña']) {
-            return $registro;
+    $consulta = "SELECT * FROM usuarios WHERE email = :email";
+    
+    // Usar una consulta preparada para evitar inyecciones SQL
+    $stmt = $pdo->prepare($consulta);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+    
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Verificar si se encontró un usuario con el email proporcionado
+    if ($usuario) {
+        // Verificar si la contraseña proporcionada coincide con la contraseña almacenada
+        if (password_verify($password, $usuario['contraseña'])) {
+            return $usuario;
         }
     }
+
     return null;
 }
+

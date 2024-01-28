@@ -43,6 +43,10 @@ header {
     padding: 20px; /* Espaciado interno */
 }
 
+.info-user > p {
+    text-align: start;
+}
+
 .info-user > header {
     margin-bottom: 1rem;
 }
@@ -50,6 +54,7 @@ header {
 .img-from-profile {
     width: 200px;
     height: 200px;
+    background-size: cover;
     border-radius: 50%; /* Hacer la imagen redonda */
     margin-bottom: 10px; /* Espaciado inferior */
 }

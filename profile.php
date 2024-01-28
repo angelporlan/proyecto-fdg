@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/menu.css">
     <link rel="stylesheet" href="./css/profile.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <script type="module" src="./js/profile.js"></script>
 </head>
 <body>
     <?php include_once('./components/menu.php')?>
@@ -19,10 +20,11 @@
             <div class="left-zone"></div>
             <header>Tu avatar</header>
             <div class="right-zone"></div>
-            <img src="./bbdd/default.png" class="img-from-profile">
-            <form action="#">
-                <button class="button-green" name= "avatar" value="">Reemplazar</button>
-                <button class="button-red" name= "avatar" value="">Quitar</button>
+            <img src="./bbdd/<?php echo $_SESSION['userLogin']['ruta_imagen']; ?>" class="img-from-profile">
+            <form action="./controler/process_profile.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="img" id="img">
+                <button class="button-green" name= "avatar">Reemplazar</button>
+                <button class="button-red" name="avatar-delete">Quitar</button>
             </form>
         </div>    
 
@@ -37,8 +39,9 @@
                 }
                 echo '<p><strong>Email: </strong>' . $_SESSION['userLogin']['email'] . '</p>';
             ?>
-            <form action="#">
-                <button class="button-red" name= "avatar" value="">Cambiar contraseña</button>
+            <form action="./change_password.php" method="post">
+                <button class="button-green" name="reemplazar" value="reemplazar">Cambiar datos</button>
+                <button class="button-red" name="cambiar_contraseña" value="cambiar_contraseña">Cambiar contraseña</button>
             </form>
         </div>
         </div>

@@ -4,7 +4,13 @@
         <?php
             session_start();
             if (isset($_SESSION["userLogin"])) {
-                echo "<a href='profile.php' class='profile'></a>";
+                $ruta_imagen = $_SESSION["userLogin"]['ruta_imagen'];
+                echo "<a href='profile.php' class='profile' style='background: url(./bbdd/$ruta_imagen);    background-size: cover;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                margin-right: 1rem;
+                border: 2px solid rgb(0, 123, 255);'></a>";
             } else {
                 echo "<a href='login.php' class='profile'></a>";
             }
@@ -12,6 +18,7 @@
         <a href="./share.php"><div class="share"><strong>+</strong>&nbspComparte</div></a>
     </div>
 </header>
+
 
 <?php
     if (isset($_SESSION['userSing'])) {
@@ -21,7 +28,15 @@
     if (isset($_SESSION['userLog'])) {
         echo "<p class='user-sing'>{$_SESSION['userLog']} - (Pulsar para eliminar mensaje)</p>";
         unset($_SESSION['userLog']);
-    }    
+    }
+    if (isset($_SESSION['userDeleteImg'])) {
+        echo "<p class='user-sing'>{$_SESSION['userDeleteImg']} - (Pulsar para eliminar mensaje)</p>";
+        unset($_SESSION['userDeleteImg']);
+    }   
+    if (isset($_SESSION['userChangePass'])) {
+        echo "<p class='user-sing'>{$_SESSION['userChangePass']} - (Pulsar para eliminar mensaje)</p>";
+        unset($_SESSION['userChangePass']);
+    }  
 ?>
 
 <nav class="nav-menu">
