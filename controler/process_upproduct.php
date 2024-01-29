@@ -11,17 +11,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $seccion = recoge('seccion');    
     $descripcion = recoge('descripcion');
     $nuevoNombreImagen = '';
-    $nombre_user = 'Usuario ' . $_SESSION['userLogin']['id'];
-    if ($_SESSION['userLogin']['apellidos'] != null && $_SESSION['userLogin']['nombre'] == null) {
-        $nombre_user = $_SESSION['userLogin']['apellidos'];
-    }
-    if ($_SESSION['userLogin']['nombre'] != null && $_SESSION['userLogin']['apellidos'] == null) {
-        $nombre_user = $_SESSION['userLogin']['nombre'];
-    }
-    if ($_SESSION['userLogin']['apellidos'] != null && $_SESSION['userLogin']['nombre'] != null) {
-        $nombre_user = $_SESSION['userLogin']['nombre'] . ' ' . $_SESSION['userLogin']['apellidos'];
-    }
-    $ruta_imagen_user = $_SESSION['userLogin']['ruta_imagen'];
+    // $nombre_user = 'Usuario ' . $_SESSION['userLogin']['id'];
+    // if ($_SESSION['userLogin']['apellidos'] != null && $_SESSION['userLogin']['nombre'] == null) {
+    //     $nombre_user = $_SESSION['userLogin']['apellidos'];
+    // }
+    // if ($_SESSION['userLogin']['nombre'] != null && $_SESSION['userLogin']['apellidos'] == null) {
+    //     $nombre_user = $_SESSION['userLogin']['nombre'];
+    // }
+    // if ($_SESSION['userLogin']['apellidos'] != null && $_SESSION['userLogin']['nombre'] != null) {
+    //     $nombre_user = $_SESSION['userLogin']['nombre'] . ' ' . $_SESSION['userLogin']['apellidos'];
+    // }
+    // $ruta_imagen_user = $_SESSION['userLogin']['ruta_imagen'];
 
     if ($nombre === null || $oferta === null || $precio === null || $seccion == 'nulo' || $descripcion == null) {
         $_SESSION['productError'] = '<p class="error">Todas las casillas deben estar rellenadas</p>';
@@ -55,8 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $pdo = conectadb();
 
-    $consulta = "INSERT INTO productos (titulo, precio_oferta, precio, seccion, descripcion, ruta_imagen, nombre_user, ruta_imagen_user)
-        VALUES (:nombre, :oferta, :precio, :seccion, :descripcion, :ruta_imagen, :nombre_user, :ruta_imagen_user)";
+    $consulta = "INSERT INTO productos (titulo, precio_oferta, precio, seccion, descripcion, ruta_imagen, fecha, id_user)
+        VALUES (:nombre, :oferta, :precio, :seccion, :descripcion, :ruta_imagen, :fecha, :id_user)";
 
     $resultado = $pdo->prepare($consulta);
     if (!$resultado) {
@@ -68,8 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ":seccion" => $seccion,
         ":descripcion" => $descripcion,
         ":ruta_imagen" => $nuevoNombreImagen,
-        ":nombre_user" => $nombre_user,
-        ":ruta_imagen_user" => $ruta_imagen_user
+        ":fecha" => time(),
+        ":id_user" => $_SESSION['userLogin']['id']
     ])) {
         print "    <p>Error al ejecutar la consulta. SQLSTATE[{$pdo->errorCode()}]: {$pdo->errorInfo()[2]}</p>\n";
     } else {
