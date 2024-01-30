@@ -21,21 +21,13 @@ function tiempoTranscurrido($fechaEnMilisegundos) {
 
     if ($diferencia->y > 0) {
         $formato .= 'Hace ' . $diferencia->y . ' año' . ($diferencia->y > 1 ? 's' : '') . ' ';
-    }
-
-    if ($diferencia->m > 0) {
+    } elseif ($diferencia->m > 0) {
         $formato .= 'Hace ' . $diferencia->m . ' mes' . ($diferencia->m > 1 ? 'es' : '') . ' ';
-    }
-
-    if ($diferencia->d > 0) {
+    } elseif ($diferencia->d > 0) {
         $formato .= 'Hace ' . $diferencia->d . ' día' . ($diferencia->d > 1 ? 's' : '') . ' ';
-    }
-
-    if ($diferencia->h > 0) {
+    } elseif ($diferencia->h > 0) {
         $formato .= 'Hace ' . $diferencia->h . ' hora' . ($diferencia->h > 1 ? 's' : '') . ' ';
-    }
-
-    if ($diferencia->i > 0) {
+    } else {
         $formato .= 'Hace ' . $diferencia->i . ' minuto' . ($diferencia->i > 1 ? 's' : '') . ' ';
     }
 
@@ -45,3 +37,4 @@ function tiempoTranscurrido($fechaEnMilisegundos) {
 
     return $formato;
 }
+
