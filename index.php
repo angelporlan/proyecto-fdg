@@ -21,7 +21,18 @@
             require_once "./functions/functions.php";
 
             $pdo = conectadb();
-            $consulta = "SELECT * FROM productos ORDER BY id DESC;";
+            $seccion = null;
+            if (isset($_GET['seccion'])) {
+                $seccion = $_GET['seccion'];
+            }
+
+            $consulta = "SELECT * FROM productos";
+                    
+            if ($seccion != null) {
+                $consulta .= " WHERE seccion = '$seccion'";
+            }
+            
+            $consulta .= " ORDER BY id DESC";
 
             $resultado = $pdo->query($consulta);
 
@@ -70,6 +81,7 @@
                     echo "<p>$nombre_user</p>";
                     echo "</div>";
                     echo "<button class='ir-al-chollo'>Ir al chollo</button>";
+                    echo "<button class='guardar-chollo'>&#128229;</button>";
                     echo "<p class='fecha-producto'>$tiempo</p>";
                     echo "</div>";
                     echo "</div>";
@@ -86,23 +98,23 @@
                 <strong class="tittle-shop-image">Tiendas populares</strong>
                 <div class="shops">
                 <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/173_2/re/94x94/qt/70/173_2.jpg" alt="Tienda 1"></a>
-    <a href="https://www.mediamarkt.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/171_4/re/94x94/qt/70/171_4.jpg" alt="Tienda 2"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/170_1/re/94x94/qt/70/170_1.jpg" alt="Tienda 3"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/166_2/re/94x94/qt/70/166_2.jpg" alt="Tienda 4"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/4198_2/re/94x94/qt/70/4198_2.jpg" alt="Tienda 5"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/256_1/re/94x94/qt/70/256_1.jpg" alt="Tienda 6"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/337_6/re/94x94/qt/70/337_6.jpg" alt="Tienda 7"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/202_2/re/94x94/qt/70/202_2.jpg" alt="Tienda 8"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/178_7/re/94x94/qt/70/178_7.jpg" alt="Tienda 9"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/179_6/re/94x94/qt/70/179_6.jpg" alt="Tienda 10"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/177_8/re/94x94/qt/70/177_8.jpg" alt="Tienda 11"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/211_4/re/94x94/qt/70/211_4.jpg" alt="Tienda 12"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/160_2/re/94x94/qt/70/160_2.jpg" alt="Tienda 13"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/203_4/re/94x94/qt/70/203_4.jpg" alt="Tienda 14"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/7530_1/re/94x94/qt/70/7530_1.jpg" alt="Tienda 15"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/198_3/re/94x94/qt/70/198_3.jpg" alt="Tienda 16"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/2160_3/re/94x94/qt/70/2160_3.jpg" alt="Tienda 17"></a>
-    <a href="https://www.amazon.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/189_4/re/94x94/qt/70/189_4.jpg" alt="Tienda 18"></a>
+                <a href="https://www.mediamarkt.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/171_4/re/94x94/qt/70/171_4.jpg" alt="Tienda 2"></a>
+                <a href="https://www.elcorteingles.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/170_1/re/94x94/qt/70/170_1.jpg" alt="Tienda 3"></a>
+                <a href="https://www.ebay.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/166_2/re/94x94/qt/70/166_2.jpg" alt="Tienda 4"></a>
+                <a href="https://www.huawei.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/4198_2/re/94x94/qt/70/4198_2.jpg" alt="Tienda 5"></a>
+                <a href="https://www.samsung.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/256_1/re/94x94/qt/70/256_1.jpg" alt="Tienda 6"></a>
+                <a href="https://www.justeat.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/337_6/re/94x94/qt/70/337_6.jpg" alt="Tienda 7"></a>
+                <a href="https://www.pccomponentes.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/202_2/re/94x94/qt/70/202_2.jpg" alt="Tienda 8"></a>
+                <a href="https://www.adidas.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/178_7/re/94x94/qt/70/178_7.jpg" alt="Tienda 9"></a>
+                <a href="https://www.reebok.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/179_6/re/94x94/qt/70/179_6.jpg" alt="Tienda 10"></a>
+                <a href="https://www.nike.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/177_8/re/94x94/qt/70/177_8.jpg" alt="Tienda 11"></a>
+                <a href="https://www.carrefour.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/211_4/re/94x94/qt/70/211_4.jpg" alt="Tienda 12"></a>
+                <a href="https://www.banggood.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/160_2/re/94x94/qt/70/160_2.jpg" alt="Tienda 13"></a>
+                <a href="https://www.myprotein.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/203_4/re/94x94/qt/70/203_4.jpg" alt="Tienda 14"></a>
+                <a href="https://www.miravia.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/7530_1/re/94x94/qt/70/7530_1.jpg" alt="Tienda 15"></a>
+                <a href="https://www.telepizza.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/198_3/re/94x94/qt/70/198_3.jpg" alt="Tienda 16"></a>
+                <a href="https://www.ubereats.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/2160_3/re/94x94/qt/70/2160_3.jpg" alt="Tienda 17"></a>
+                <a href="https://www.steam.es/" target="_blank"><img src="https://static.chollometro.com/merchants/raw/avatar/189_4/re/94x94/qt/70/189_4.jpg" alt="Tienda 18"></a>
                     <!-- <img src="https://static.chollometro.com/merchants/raw/avatar/165_2/re/94x94/qt/70/165_2.jpg">
                     <img src="https://static.chollometro.com/merchants/raw/avatar/205_4/re/94x94/qt/70/205_4.jpg"> -->
                 </div>

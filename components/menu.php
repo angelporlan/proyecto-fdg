@@ -46,11 +46,12 @@
 
 <nav class="nav-menu">
     <ul>
-        <li><a href="#">Electrónica</a></li>
-        <li><a href="#">Gaming</a></li>
-        <li><a href="#">Alimentación</a></li>
-        <li><a href="#">Moda y accesorios</a></li>
-        <li><a href="#">Hogar y vivienda</a></li>
+        <li><a href="?seccion=electronica">Electrónica</a></li>
+        <li><a href="?seccion=gaming">Gaming</a></li>
+        <li><a href="?seccion=alimentacion">Alimentación</a></li>
+        <li><a href="?seccion=moda">Moda y accesorios</a></li>
+        <li><a href="?seccion=hogar">Hogar y vivienda</a></li>
+        <li><a href="?seccion=otro">Otro</a></li>
     </ul>
 
 </nav>
