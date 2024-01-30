@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-01-2024 a las 20:00:10
+-- Tiempo de generación: 30-01-2024 a las 20:20:33
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -11,18 +11,11 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-
--- Selección de la base de datos
-USE proyectofdg;
-
--- --------------------------------------------------------
-
--- Resto del script...
-
 
 --
 -- Base de datos: `proyectofdg`
@@ -67,17 +60,18 @@ CREATE TABLE `usuarios` (
   `apellidos` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `contraseña` varchar(255) DEFAULT NULL,
-  `ruta_imagen` varchar(255) DEFAULT NULL
+  `ruta_imagen` varchar(255) DEFAULT NULL,
+  `chollos_guardados` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`chollos_guardados`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `email`, `contraseña`, `ruta_imagen`) VALUES
-(30, 'Angel', 'Porlan', 'angeelporlan4@gmail.com3', '$2y$10$y75eGTdPlrERs8FJVmO7p.CVkiKJLnDnJMxVfAQox5qzxuZmU.MKy', 'img30_eb78e90d-943a-4270-b049-4c9a2a8280f4_16-9-discover-aspect-ratio_default_0.jpg'),
-(31, 'Angel', 'f', 'drivefactsmedia@gmail.com', '$2y$10$gCPj9qGZGbrbrN0MwK7S3uWKXd2id3Or2wGR.hzDCblaiVytMz07W', 'default.png'),
-(32, 'Carlos', 'Millán', 'angeelporlan4@gmail.com1', '$2y$10$0mRUnQCkj9b70CAfv9cazeW5/LBLpqD.mzChSlUjow.6iB.gkWAoW', 'descarga.jpg');
+INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `email`, `contraseña`, `ruta_imagen`, `chollos_guardados`) VALUES
+(30, 'Angel', 'Porlan', 'angeelporlan4@gmail.com3', '$2y$10$y75eGTdPlrERs8FJVmO7p.CVkiKJLnDnJMxVfAQox5qzxuZmU.MKy', 'img30_eb78e90d-943a-4270-b049-4c9a2a8280f4_16-9-discover-aspect-ratio_default_0.jpg', NULL),
+(31, 'Angel', 'f', 'drivefactsmedia@gmail.com', '$2y$10$gCPj9qGZGbrbrN0MwK7S3uWKXd2id3Or2wGR.hzDCblaiVytMz07W', 'default.png', NULL),
+(32, 'Carlos', 'Millán', 'angeelporlan4@gmail.com1', '$2y$10$0mRUnQCkj9b70CAfv9cazeW5/LBLpqD.mzChSlUjow.6iB.gkWAoW', 'descarga.jpg', '[]');
 
 --
 -- Índices para tablas volcadas

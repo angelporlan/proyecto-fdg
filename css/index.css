@@ -124,7 +124,6 @@ article {
 } */
 
 .ir-al-chollo {
-    position: absolute;
     bottom: 1rem;
     right: 1rem;
     background-color: rgb(0, 123, 255);
@@ -143,11 +142,29 @@ article {
     cursor: pointer;
 }
 
-.guardar-chollo {
+.chollo-butons {
+    display: flex;
     position: absolute;
     bottom: 1rem;
+    right: 1rem;
+}
+
+.guardar-chollo {
+    bottom: 1rem;
+    font-size: 1.4rem;
     right: 30%;
     border: none;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: rgb(209, 209, 209);
+    margin-right: 1rem;
+    border-radius: 50%;
+    border: 1px solid rgb(156, 166, 177);
+}
+
+.guardar-chollo:hover {
+    background-color: rgb(167, 167, 167);
+    cursor: pointer;
 }
 
 .fecha-producto {

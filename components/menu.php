@@ -5,6 +5,8 @@
             session_start();
             if (isset($_SESSION["userLogin"])) {
                 $ruta_imagen = $_SESSION["userLogin"]['ruta_imagen'];
+                echo "<a href='chollos_guardados.php' class='save_chollo'></a>";
+
                 echo "<a href='profile.php' class='profile' style='background: url(./bbdd/$ruta_imagen);    background-size: cover;
                 width: 50px;
                 height: 50px;
