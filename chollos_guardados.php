@@ -27,7 +27,7 @@
             $datosUsuario = $resultado->fetch(PDO::FETCH_ASSOC);
 
             if ($datosUsuario['chollos_guardados'] == null || $datosUsuario['chollos_guardados'] == '[]') {
-                echo "nada q mostar";
+                echo "<p class='no-chollo'>No tienes chollos guardados, ¡Prueba a guardar uno!</p>";
             } else {
                 // Decodificar la cadena JSON
                 $chollosGuardados = json_decode($datosUsuario['chollos_guardados'], true);

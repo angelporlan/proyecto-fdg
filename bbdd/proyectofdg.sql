@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-01-2024 a las 20:20:33
+-- Tiempo de generación: 31-01-2024 a las 20:55:41
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `proyectofdg`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `comentario` text NOT NULL,
+  `fecha` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id`, `id_producto`, `id_usuario`, `comentario`, `fecha`) VALUES
+(2, 13, 32, 'buenisimo', 1706729862);
 
 -- --------------------------------------------------------
 
@@ -71,11 +92,17 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `email`, `contraseña`, `ruta_imagen`, `chollos_guardados`) VALUES
 (30, 'Angel', 'Porlan', 'angeelporlan4@gmail.com3', '$2y$10$y75eGTdPlrERs8FJVmO7p.CVkiKJLnDnJMxVfAQox5qzxuZmU.MKy', 'img30_eb78e90d-943a-4270-b049-4c9a2a8280f4_16-9-discover-aspect-ratio_default_0.jpg', NULL),
 (31, 'Angel', 'f', 'drivefactsmedia@gmail.com', '$2y$10$gCPj9qGZGbrbrN0MwK7S3uWKXd2id3Or2wGR.hzDCblaiVytMz07W', 'default.png', NULL),
-(32, 'Carlos', 'Millán', 'angeelporlan4@gmail.com1', '$2y$10$0mRUnQCkj9b70CAfv9cazeW5/LBLpqD.mzChSlUjow.6iB.gkWAoW', 'descarga.jpg', '[]');
+(32, 'Carlos', 'Millán', 'angeelporlan4@gmail.com1', '$2y$10$0mRUnQCkj9b70CAfv9cazeW5/LBLpqD.mzChSlUjow.6iB.gkWAoW', 'descarga.jpg', '[14]');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `productos`
@@ -94,10 +121,16 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

@@ -72,6 +72,43 @@
             <p class="descripcion"><?php echo $datosProducto['descripcion']?></p>
         </div>
     </div>
+
+    <?php
+        $consulta = "SELECT * FROM comentarios WHERE id_producto = $id_product";
+        $resultado = $pdo->query($consulta);
+        $num_registros = $resultado->rowCount();
+    ?>
+
+    <div class="comments-contaner">
+        <header>
+
+        <?php
+            if ($num_registros == 0) {
+                echo "No hay comentarios";
+            }elseif($num_registros == 1) {
+                echo "$num_registros comentario";
+            }else {
+                echo "$num_registros comentarios";
+            }
+        ?>
+
+        </header>
+        <form action="./controler/process_subir_chollo.php?id=<?php echo $id_product; ?>" method="post">
+            <img src="./bbdd/<?php if (isset($_SESSION['userLogin'])) { echo $_SESSION['userLogin']['ruta_imagen'];} else { echo 'default.png'; } ?>">
+            <textarea name="comentario"></textarea>
+            <!-- <input type="text" name="comentario"> -->
+            <button>Enviar</button>
+        </form>
+        <div class="comments">
+            <?php
+                if ($resultado) {
+                    foreach ($resultado as $registro) {
+                        echo $registro['comentario'];
+                    }
+                }
+            ?>
+        </div>
+    </div>
         
     </main>
 
