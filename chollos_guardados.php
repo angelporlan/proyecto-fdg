@@ -98,7 +98,7 @@
                         echo "<input type='hidden' name='chollo_id' value='{$registro['id']}' />";
                         echo "<button type='submit' class='guardar-chollo'>&#128229;</button>";
                         echo "</form>";
-                        echo "<button class='ir-al-chollo'>Ir al chollo</button>";
+                        echo "<a href='./info_chollo.php?id={$registro['id']}' class='ir-al-chollo'>Ir al chollo</a>";
                         echo "</div>";
                         echo "<p class='fecha-producto'>$tiempo</p>";
                         echo "</div>";

@@ -21,7 +21,12 @@ main {
     display: flex;
     width: 90%;
     border-radius: 8px;
+    transition: transform 0.4s;
+}
 
+.container-left > article:hover {
+    transform: scale(1.02);
+    transition: .4s;
 }
 
 .container-left > article > .left-zone, .container-left > article > .right-zone {
@@ -29,8 +34,11 @@ main {
 }
 
 .left-zone > img {
-    width: 180px;
-    height: 180px;
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
 .prices {
@@ -102,6 +110,12 @@ main {
     background-color: #fff;
     border-radius: 10px;
     padding: 10px;
+    transition: transform 0.4s;
+}
+
+.shops-images:hover {
+    transform: scale(1.02);
+    transition: transform 0.4s;
 }
 
 .tittle-shop-image {
@@ -109,7 +123,6 @@ main {
     margin-bottom: 0.5rem;
     text-align: center;
 }
-
 
 
 
