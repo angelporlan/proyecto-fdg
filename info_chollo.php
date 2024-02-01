@@ -103,10 +103,57 @@
             <?php
                 if ($resultado) {
                     foreach ($resultado as $registro) {
-                        echo $registro['comentario'];
+
+                        $consulta2 = "SELECT nombre, apellidos, ruta_imagen FROM usuarios WHERE id = {$registro['id_usuario']}";
+                        $resultado = $pdo->query($consulta2);
+                        $datosUsuario = $resultado->fetch(PDO::FETCH_ASSOC);
+                        $nombre = $datosUsuario['nombre'];
+                        $apellidos = $datosUsuario['apellidos'];
+
+                        $nombre_user = 'Usuario ' . $registro['id_usuario'];
+                        if ($apellidos != null && $nombre == null) {
+                            $nombre_user = $apellidos;
+                        }
+                        if ($nombre != null && $apellidos == null) {
+                            $nombre_user = $nombre;
+                        }
+                        if ($apellidos != null && $nombre != null) {
+                            $nombre_user = $nombre . ' ' . $apellidos;
+                        }
+
+                        $tiempo = tiempoTranscurrido($registro['fecha']);
+
+                        echo "<article>";
+                        echo "<div class='user'>";
+                        echo "<img src='./bbdd/$datosUsuario[ruta_imagen]'>";
+                        echo "<p>$nombre_user</p>";
+                        echo "<div class='time-comment'>";
+                        echo "<p>$tiempo</p>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "<div class='comment'>";
+                        echo "<p>$registro[comentario]</p>";
+                        echo "</div>";
+                        echo "</article>";
+
+
                     }
                 }
             ?>
+
+            <!-- <article>
+                <div class="user">
+                    <img src="./bbdd/default.png">
+                    <p>Angel Porlan</p>
+                    <div class="time-comment">
+                        <p>Hace 16 minutos</p>
+                    </div>
+                </div>
+                <div class="comment">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, iste.123 123 12344
+                </div>
+            </article> -->
+            
         </div>
     </div>
         

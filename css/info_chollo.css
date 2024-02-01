@@ -93,6 +93,8 @@ main {
 }
 
 .comments-contaner header {
+    margin-top: 1rem;
+    font-weight: bold;
     font-size: 1.2rem;
     margin-bottom: 10px;
     text-align: center;
@@ -136,6 +138,43 @@ form > button:hover {
     cursor: pointer;
 }
 
+.comments {
+    display: flex;
+    flex-direction: column;
+}
+
+.comments article {
+    margin-bottom: 20px;
+    margin: 10px;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+}
+
+.comments .user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Para espacio entre la imagen y el texto */
+    margin-bottom: 10px;
+}
+
+.comments .user img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comments .comment {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 10px;
+    word-wrap: break-word;
+}
+
+.time-comment {
+    margin-left: auto; /* Alinear completamente a la derecha */
+    margin-right: 1rem;
+}
 
 
 /* Add responsive styles as needed */
