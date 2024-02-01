@@ -3,6 +3,8 @@
     require_once('../functions/functions.php');
     require_once('./functions_bbdd.php');
 
+    $id_chollo = $_GET['id'];
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!isset($_SESSION['userLogin'])) {
         $_SESSION['userShare'] = 'Debes iniciar sesión para publicar el comentario';
@@ -11,7 +13,6 @@
         }
 
         $comentario = recoge('comentario');
-        $id_chollo = $_GET['id'];
         $id_user = $_SESSION['userLogin']['id'];
 
         if ($comentario == null) {
