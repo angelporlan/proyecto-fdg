@@ -30,7 +30,7 @@ main {
     margin-left: 4rem;
 }
 
-.left-zone {
+.left-zone-menu {
     margin-left: auto;
     margin-right: 4rem;
     display: flex;
@@ -123,4 +123,39 @@ a {
     color: white;
     text-align: center;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .header-menu {
+        padding: 0.8rem;
+    }
+
+    .header-menu > h1 {
+        font-size: 1rem;
+        margin-left: 1rem;
+    }
+
+    .left-zone-menu {
+        margin-right: 2rem;
+    }
+
+    .profile,
+    .save_chollo {
+        width: 30px;
+        height: 30px;
+        margin-right: 0.5rem;
+    }
+
+    .share {
+        width: auto;
+        padding: 0 2rem;
+    }
+
+    .nav-menu > ul {
+        flex-direction: column;
+    }
+
+    .nav-menu > ul > li {
+        border-bottom: none;
+    }
 }

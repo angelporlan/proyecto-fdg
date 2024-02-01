@@ -1,6 +1,6 @@
 <header class="header-menu">
     <h1><a href="/proyecto-fdg/index.php">🔥CholloCentro</a></h1>
-    <div class="left-zone">
+    <div class="left-zone-menu">
         <?php
             session_start();
             if (isset($_SESSION["userLogin"])) {

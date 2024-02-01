@@ -114,3 +114,15 @@ input[type="file"]:not(:focus) + label {
    padding: 5px;
    border-radius: 4px;
 }
+
+@media screen and (max-width: 600px) {
+    
+
+    .buttons > button {
+        font-size: 1.3rem;    
+    }
+
+    .buttons > div {
+        font-size: 1.3rem;
+    }
+}

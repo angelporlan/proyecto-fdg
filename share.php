@@ -6,6 +6,7 @@
         header("Location: ./index.php");
         exit();
     }
+    session_write_close();
 ?>
 <!DOCTYPE html>
 <html lang="en">

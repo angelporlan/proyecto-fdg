@@ -85,3 +85,46 @@ form > * {
     padding: 5px;
     border-radius: 4px;
  }
+
+ @media screen and (max-width: 600px) {
+    
+    form > header {
+        font-size: 1.6rem;
+    }
+    
+    .email {
+        margin-bottom: 1rem;
+    }
+    
+    .email > input, .password > input {
+        font-size: 22px;
+    }
+    
+    form > * {
+        margin: 2rem;
+    }
+    
+    .buttons {
+        margin-top: 1rem;
+        display: flex;
+        gap: .5rem;
+    }
+    
+    .buttons > div {
+        font-size: 1.4rem;
+    }
+    
+    .buttons > button {
+        font-size: 1.4rem;    
+    }
+    
+    .buttons > button:hover {
+        background-color:rgb(2, 105, 215);
+        cursor: pointer;
+    }
+    
+    .error {
+        font-size: 1.3rem;
+     }
+    
+}

@@ -1,9 +1,10 @@
+/* Default styles for larger screens */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px; /* Espacio entre los elementos hijos */
-    padding: 20px; /* Espaciado interno del main */
+    gap: 20px;
+    padding: 20px;
 }
 
 header {
@@ -12,12 +13,12 @@ header {
 
 .avatar,
 .info-user {
-    width: 300px; /* Ancho deseado */
-    height: 300px; /* Altura deseada */
-    background-color: #f5f5f5; /* Color de fondo */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 20px; /* Espaciado interno */
-    text-align: center; /* Centrar el contenido */
+    width: 300px;
+    height: 300px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
     position: relative;
 }
 
@@ -27,20 +28,20 @@ header {
     width: 100%;
     bottom: 10px;
     left: 50%;
-    transform: translateX(-50%); /* Centrar horizontalmente */
+    transform: translateX(-50%);
 }
 
 .avatar {
-    background-color: #f5f5f5; /* Color de fondo para la sección del avatar */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 20px; /* Espaciado interno */
-    text-align: center; /* Centrar el contenido del avatar */
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
 }
 
 .info-user {
-    background-color: #f5f5f5; /* Color de fondo para la sección de información del usuario */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 20px; /* Espaciado interno */
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .info-user > p {
@@ -52,15 +53,15 @@ header {
 }
 
 .img-from-profile {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     background-size: cover;
-    border-radius: 50%; /* Hacer la imagen redonda */
-    margin-bottom: 10px; /* Espaciado inferior */
+    border-radius: 50%;
+    margin-bottom: 10px;
 }
 
 form button {
-    margin-top: 10px; /* Espaciado superior para los botones dentro del formulario */
+    margin-top: 10px;
 }
 
 .close-sesion {
@@ -90,7 +91,6 @@ button {
 .button-red:hover {
     cursor: pointer;
     background-color: rgb(223, 74, 74);
-
 }
 
 main {
@@ -98,4 +98,28 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+/* Media query for smaller screens (e.g., mobile devices) */
+@media screen and (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .avatar,
+    .info-user {
+        width: 100%;
+        max-width: 300px;
+        position: relative;
+    }
+
+    .avatar > form,
+    .info-user > form {
+        position: absolute;
+        width: 100%;
+        margin-top: 10px;
+        bottom: 1rem;
+
+    }
 }

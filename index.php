@@ -43,7 +43,7 @@
                     echo "<img src='./bbdd/$registro[ruta_imagen]'>";
                     echo "</div>";
                     echo "<div class='right-zone'>";
-                    $tituloCorto = (strlen($registro['titulo']) > 60) ? substr($registro['titulo'], 0, 60) . '...' : $registro['titulo'];
+                    $tituloCorto = (strlen($registro['titulo']) > 45) ? substr($registro['titulo'], 0, 45) . '...' : $registro['titulo'];
                     echo "<strong>$tituloCorto</strong>";
                     echo "<div class='prices'>";
                     echo "<p class='price-new'>$registro[precio_oferta] €</p>";

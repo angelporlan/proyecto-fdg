@@ -74,7 +74,7 @@
     </div>
 
     <?php
-        $consulta = "SELECT * FROM comentarios WHERE id_producto = $id_product";
+        $consulta = "SELECT * FROM comentarios WHERE id_producto = $id_product ORDER BY id DESC";
         $resultado = $pdo->query($consulta);
         $num_registros = $resultado->rowCount();
     ?>
