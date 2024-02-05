@@ -38,3 +38,20 @@ function tiempoTranscurrido($fechaEnMilisegundos) {
     return $formato;
 }
 
+function validarEnlace($enlace) {
+    $curl = curl_init($enlace);
+    
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    
+    $respuesta = curl_exec($curl);
+    $error = curl_error($curl);
+    
+    curl_close($curl);
+    
+    // Verificar si se obtuvo una respuesta sin errores
+    return !empty($respuesta) && !$error;
+}
+
+

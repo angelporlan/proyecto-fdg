@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./css/menu.css">
     <link rel="stylesheet" href="./css/share.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <script type="module" src="./js/share.js"></script>
 </head>
 <body>
     <?php include_once('./components/menu.php')?>
@@ -56,6 +57,9 @@
 
             <p>Descripción</p>
             <textarea name="descripcion"></textarea>
+
+            <p>Enlace</p>
+            <input type="text" name="link">
             
             <input type="file" name="imagen">
 

@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $precio = recoge('precio_habitual');
     $seccion = recoge('seccion');    
     $descripcion = recoge('descripcion');
+    $link = recoge('link');
     $nuevoNombreImagen = '';
     // $nombre_user = 'Usuario ' . $_SESSION['userLogin']['id'];
     // if ($_SESSION['userLogin']['apellidos'] != null && $_SESSION['userLogin']['nombre'] == null) {
@@ -23,9 +24,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // }
     // $ruta_imagen_user = $_SESSION['userLogin']['ruta_imagen'];
 
-    if ($nombre === null || $oferta === null || $precio === null || $seccion == 'nulo' || $descripcion == null) {
-        $_SESSION['productError'] = '<p class="error">Todas las casillas deben estar rellenadas</p>';
-        header("Location: ../singin.php");
+    if ($nombre === null || $oferta === null || $precio === null || $seccion == 'nulo' || $descripcion == null || $link == null) {
+        $_SESSION['userShare'] = 'Todas las casillas deben estar rellenadas';
+        header("Location: ../share.php");
+        exit();
+    }
+
+    if (!validarEnlace($link)) {
+        $_SESSION['userShare'] = 'El enlace no es válido';
+        header("Location: ../share.php");
+        exit();
+    }
+
+    if ($oferta >= $precio) {
+        $_SESSION['userShare'] = 'La oferta es mas cara que su precio habitual';
+        header("Location: ../share.php");
         exit();
     }
 
@@ -55,8 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $pdo = conectadb();
 
-    $consulta = "INSERT INTO productos (titulo, precio_oferta, precio, seccion, descripcion, ruta_imagen, fecha, id_user)
-        VALUES (:nombre, :oferta, :precio, :seccion, :descripcion, :ruta_imagen, :fecha, :id_user)";
+    $consulta = "INSERT INTO productos (titulo, precio_oferta, precio, seccion, descripcion, ruta_imagen, fecha, id_user, enlace)
+        VALUES (:nombre, :oferta, :precio, :seccion, :descripcion, :ruta_imagen, :fecha, :id_user, :link)";
 
     $resultado = $pdo->prepare($consulta);
     if (!$resultado) {
@@ -69,7 +82,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ":descripcion" => $descripcion,
         ":ruta_imagen" => $nuevoNombreImagen,
         ":fecha" => time(),
-        ":id_user" => $_SESSION['userLogin']['id']
+        ":id_user" => $_SESSION['userLogin']['id'],
+        ":link" => $link
     ])) {
         print "    <p>Error al ejecutar la consulta. SQLSTATE[{$pdo->errorCode()}]: {$pdo->errorInfo()[2]}</p>\n";
     } else {

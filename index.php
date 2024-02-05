@@ -81,11 +81,15 @@
                     echo "<p>$nombre_user</p>";
                     echo "</div>";
                     echo "<div class='chollo-butons'>";
+                    $consulta = "SELECT * FROM comentarios WHERE id_producto = $registro[id]";
+                    $resultado = $pdo->query($consulta);
+                    $num_registros = $resultado->rowCount();
+                    echo "<a href='./info_chollo.php?id={$registro['id']}' class='count-message'>&#128491; $num_registros</a>";
                     echo "<form action='./controler/process_guardar_chollo.php' method='post'>";
                     echo "<input type='hidden' name='chollo_id' value='{$registro['id']}' />";
                     echo "<button type='submit' class='guardar-chollo'>&#128229;</button>";
                     echo "</form>";
-                    echo "<a href='./info_chollo.php?id={$registro['id']}' class='ir-al-chollo'>Ir al chollo</a>";
+                    echo "<a href='./info_chollo.php?id={$registro['id']}' class='ir-al-chollo'>Info Chollo</a>";
                     echo "</div>";
                     echo "<p class='fecha-producto'>$tiempo</p>";
                     echo "</div>";

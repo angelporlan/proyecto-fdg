@@ -60,14 +60,20 @@
                 <strong><?php echo $datosProducto['titulo'] ?></strong>
             </header>
             <div class="precios">
-                <p><b><?php echo $datosProducto['precio_oferta'] ?>€ </b><?php echo $datosProducto['precio'] ?>€</p>
+                <?php
+                    $porcentajeDescuento = (($datosProducto['precio'] - $datosProducto['precio_oferta']) / $datosProducto['precio']) * 100;
+                    $porcentajeDescuento = '(' . round($porcentajeDescuento, 0) . '%)';
+                ?>
+                <strong><?php echo $datosProducto['precio_oferta'] ?>€ </strong>
+                <p><?php echo $datosProducto['precio'] ?>€</p>
+                <p class="porcentaje"><?php echo $porcentajeDescuento ?></p>
             </div>
             <div class="button-info-user">
                 <div class="info-user">
                     <img src="./bbdd/<?php echo $datosUsuario['ruta_imagen']?>">
                     <p><?php echo $nombre_user?></p>
                 </div>
-                <button class="ir-al-chollo">Ir al chollo</button>
+                <a href="<?php echo $datosProducto['enlace'] ?>" target="_blank"><button class="ir-al-chollo">Ir al chollo</button></a>
             </div>
             <p class="descripcion"><?php echo $datosProducto['descripcion']?></p>
         </div>

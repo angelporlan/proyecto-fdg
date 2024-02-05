@@ -183,6 +183,28 @@ article {
     cursor: pointer;
 }
 
+.count-message {
+    bottom: 1rem;
+    font-size: 1.2rem;
+    right: 30%;
+    border: none;
+    width: 4.8rem;
+    height: 2.4rem;
+    background-color: rgb(209, 209, 209);
+    margin-right: 1rem;
+    border-radius: 50px;
+    border: 1px solid rgb(156, 166, 177);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.count-message:hover {
+    background-color: rgb(167, 167, 167);
+    cursor: pointer;
+}
+
 .fecha-producto {
     position: absolute;
     top: 1rem;
