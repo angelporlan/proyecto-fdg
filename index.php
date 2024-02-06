@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <script src="https://kit.fontawesome.com/cb93a00799.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/menu.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/footer.css">
@@ -53,7 +54,7 @@
                     echo "<p class='discont'>$porcentajeDescuento</p>";
                     echo "<p class='category'>$registro[seccion]</p>";
                     echo "</div>";
-                    $descripcionCorta = (strlen($registro['descripcion']) > 200) ? substr($registro['descripcion'], 0, 200) . '...' : $registro['descripcion'];
+                    $descripcionCorta = (strlen($registro['descripcion']) > 150) ? substr($registro['descripcion'], 0, 150) . '...' : $registro['descripcion'];
                     echo "<p class='description'>$descripcionCorta</p>";
                     echo "<div class='buttons'>";
                     echo "<div class='user'>";
@@ -84,10 +85,10 @@
                     $consulta = "SELECT * FROM comentarios WHERE id_producto = $registro[id]";
                     $resultado = $pdo->query($consulta);
                     $num_registros = $resultado->rowCount();
-                    echo "<a href='./info_chollo.php?id={$registro['id']}' class='count-message'>&#128491; $num_registros</a>";
+                    echo "<a href='./info_chollo.php?id={$registro['id']}' class='count-message'><i class='fa-regular fa-message'></i><p>$num_registros</p></a>";
                     echo "<form action='./controler/process_guardar_chollo.php' method='post'>";
                     echo "<input type='hidden' name='chollo_id' value='{$registro['id']}' />";
-                    echo "<button type='submit' class='guardar-chollo'>&#128229;</button>";
+                    echo "<button type='submit' class='guardar-chollo'><i class='fa-solid fa-bookmark'></i></button>";
                     echo "</form>";
                     echo "<a href='./info_chollo.php?id={$registro['id']}' class='ir-al-chollo'>Info Chollo</a>";
                     echo "</div>";
