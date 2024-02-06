@@ -7,14 +7,14 @@
                 $ruta_imagen = $_SESSION["userLogin"]['ruta_imagen'];
                 echo "<a href='chollos_guardados.php' class='save_chollo'></a>";
 
-                echo "<a href='profile.php' class='profile' style='background: url(./bbdd/$ruta_imagen);    background-size: cover;
+                echo "<a href='profile.php' class='profile-menu' style='background: url(./bbdd/$ruta_imagen);    background-size: cover;
                 width: 50px;
                 height: 50px;
                 border-radius: 50%;
                 margin-right: 1rem;
                 border: 2px solid rgb(0, 123, 255);'></a>";
             } else {
-                echo "<a href='login.php' class='profile'></a>";
+                echo "<a href='login.php' class='profile-menu'></a>";
             }
         ?>
         <a href="./share.php"><div class="share"><strong>+</strong>&nbspComparte</div></a>

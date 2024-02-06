@@ -37,7 +37,7 @@ main {
     align-items: center;
 }
 
-.profile {
+.profile-menu {
     /* background-color: rgb(213, 211, 211); */
     background: url(../bbdd/default.png);
     background-size: cover;
@@ -48,7 +48,7 @@ main {
     border: 2px solid rgb(0, 123, 255);
 }
 
-.profile:hover {
+.profile-menu:hover {
     background-color: rgb(186, 185, 185);
     cursor: pointer;
 }
@@ -132,30 +132,27 @@ a {
 
     .header-menu > h1 {
         font-size: 1rem;
-        margin-left: 1rem;
+        margin-left: 0px;
+        margin-right: .3rem;
     }
 
     .left-zone-menu {
         margin-right: 2rem;
     }
 
-    .profile,
-    .save_chollo {
-        width: 30px;
-        height: 30px;
-        margin-right: 0.5rem;
-    }
-
     .share {
         width: auto;
-        padding: 0 2rem;
+        padding: 0 .5rem;
     }
 
     .nav-menu > ul {
-        flex-direction: column;
+        flex-direction: row; /* Cambia de columna a fila */
+        overflow-x: auto; /* Permite el desplazamiento horizontal */
     }
 
     .nav-menu > ul > li {
+        padding: 1rem 2rem;
         border-bottom: none;
+        white-space: nowrap; /* Evita que los elementos se envuelvan a la siguiente línea */
     }
 }
